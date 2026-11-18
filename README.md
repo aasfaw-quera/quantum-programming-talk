@@ -6,13 +6,14 @@ Talk notebooks by Abraham Asfaw (QuEra), plus the helper functions they use.
 |---|---|---|---|
 | 2/3 | Elements of Quantum Programming | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aasfaw-quera/quantum-programming-talk/blob/main/elements-of-quantum-programming-cirq.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aasfaw-quera/quantum-programming-talk/main?labpath=elements-of-quantum-programming-cirq.ipynb) | [![View on GitHub](https://img.shields.io/badge/view-GitHub-181717?logo=github)](https://github.com/aasfaw-quera/quantum-programming-talk/blob/main/elements-of-quantum-programming-cirq.ipynb) [![View in nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/aasfaw-quera/quantum-programming-talk/blob/main/elements-of-quantum-programming-cirq.ipynb) |
 | 3/3 | Building Variational Eigensolvers | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aasfaw-quera/quantum-programming-talk/blob/main/building-variational-eigensolvers-cirq.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aasfaw-quera/quantum-programming-talk/main?labpath=building-variational-eigensolvers-cirq.ipynb) | [![View on GitHub](https://img.shields.io/badge/view-GitHub-181717?logo=github)](https://github.com/aasfaw-quera/quantum-programming-talk/blob/main/building-variational-eigensolvers-cirq.ipynb) [![View in nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/aasfaw-quera/quantum-programming-talk/blob/main/building-variational-eigensolvers-cirq.ipynb) |
+| | **Scratchpad**: everything above preloaded, plus empty cells to experiment in | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aasfaw-quera/quantum-programming-talk/blob/main/scratchpad.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aasfaw-quera/quantum-programming-talk/main?labpath=scratchpad.ipynb) | |
 
 ## Running the notebooks
 
 Pick whichever is easiest (or just read them with the *View* links, no setup needed):
 
 - **Colab:** click a notebook's *Open in Colab* badge above.
-- **Binder:** click a notebook's *launch binder* badge above (the first launch can take a few minutes).
+- **Binder:** click a notebook's *launch binder* badge above. No account needed; the first launch can take a few minutes.
 - **Your own Jupyter:** download a notebook and run it. Its first code cell installs everything it needs.
 
 ## Using the helpers in your own notebook
@@ -30,7 +31,7 @@ Bitstrings follow Cirq's convention: qubit 0 is the **leftmost** bit.
 
 ## What's in this repo
 
-- The two notebooks, at the top level.
+- The two notebooks and the scratchpad, at the top level.
 - `helpers/`: the helper functions the notebooks install and import.
 - `images/`: figures shown in the notebooks. `scripts/` regenerates them, e.g. `python scripts/make_ry_figure.py`.
 
