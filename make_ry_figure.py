@@ -5,6 +5,9 @@
 ### Ry(theta)|0> = cos(theta/2)|0> + sin(theta/2)|1>  ->  Bloch vector (sin theta, 0, cos theta),
 ### so Ry walks the qubit around the circle through |0>, +x, |1> and -x.
 ###
+### Axes follow the usual right-handed Bloch sphere drawing: x out of the page (lower left),
+### y to the right, z up, so that x cross y = z.
+###
 ### Run from this folder:   python make_ry_figure.py
 
 import os
@@ -24,12 +27,15 @@ RED = '#d1435b'
 GRAY = '#6b7280'
 LIGHT_GRAY = '#b8b8c0'
 
-# orthographic view from slightly above the equator, x towards the lower right, y towards the lower left
-azimuth, elevation = np.deg2rad(40), np.deg2rad(14)
+# orthographic view from slightly above the equator and a little round from the x axis,
+# so x points out of the page towards the lower left and y to the right
+azimuth, elevation = np.deg2rad(35), np.deg2rad(15)
 toward_viewer = np.array([np.cos(elevation) * np.cos(azimuth), np.cos(elevation) * np.sin(azimuth), np.sin(elevation)])
-screen_right = np.cross(toward_viewer, [0, 0, 1])
+screen_right = np.cross([0, 0, 1], toward_viewer)
 screen_right /= np.linalg.norm(screen_right)
-screen_up = np.cross(screen_right, toward_viewer)
+screen_up = np.cross(toward_viewer, screen_right)
+# (right, up, towards viewer) must be right-handed, otherwise the drawing is a mirror image
+assert np.allclose(np.cross(screen_right, screen_up), toward_viewer)
 
 
 def project(points):
@@ -41,7 +47,7 @@ def project(points):
 fig, ax = plt.subplots(figsize=(6.4, 4.6))
 ax.set_aspect('equal')
 ax.axis('off')
-ax.set_xlim(-1.75, 1.95)
+ax.set_xlim(-1.95, 1.75)
 ax.set_ylim(-1.3, 1.3)
 
 # sphere
@@ -54,7 +60,7 @@ ax.plot(np.where(ed < 0, ex, np.nan), np.where(ed < 0, ey, np.nan), color=LIGHT_
 ax.plot(np.where(ed >= 0, ex, np.nan), np.where(ed >= 0, ey, np.nan), color=LIGHT_GRAY, lw=1, zorder=1)
 
 # axes
-for direction, name, offset in [((1, 0, 0), 'x', (0.02, -0.16)), ((0, 1, 0), 'y', (-0.12, -0.03)), ((0, 0, 1.2), 'z', (0.07, 0.07))]:
+for direction, name, offset in [((1, 0, 0), 'x', (-0.1, -0.1)), ((0, 1, 0), 'y', (0.12, -0.02)), ((0, 0, 1.2), 'z', (0.07, 0.07))]:
 	sx, sy, _ = project(direction)
 	ax.annotate('', xy=(sx, sy), xytext=(0, 0), zorder=2,
 				arrowprops=dict(arrowstyle='-|>', color=GRAY, lw=1.2, mutation_scale=12, shrinkA=0, shrinkB=0))
@@ -79,7 +85,7 @@ ax.scatter(dx[front], dy[front], s=70, color=BLUE, zorder=4, edgecolor='white', 
 ax.scatter(dx[~front], dy[~front], s=70, color=BLUE, alpha=0.35, zorder=3, edgecolor='white', linewidth=0.8)
 
 # label a few of the dots with their theta
-for theta, text, (ox, oy) in [(np.pi / 2, r'$\theta=\pi/2$', (0.36, 0.02)), (3 * np.pi / 2, r'$\theta=3\pi/2$', (-0.4, 0.02))]:
+for theta, text, (ox, oy) in [(np.pi / 2, r'$\theta=\pi/2$', (-0.4, 0.06)), (3 * np.pi / 2, r'$\theta=3\pi/2$', (0.42, 0.04))]:
 	px, py, _ = project((np.sin(theta), 0, np.cos(theta)))
 	ax.text(px + ox, py + oy, text, color=BLUE, fontsize=12, ha='center', va='center')
 
@@ -87,18 +93,18 @@ for theta, text, (ox, oy) in [(np.pi / 2, r'$\theta=\pi/2$', (0.36, 0.02)), (3 *
 a0, a1 = np.pi / 8 + 0.08, 3 * np.pi / 8 - 0.08
 ax0, ay0, _ = project((1.12 * np.sin(a0), 0, 1.12 * np.cos(a0)))
 ax1, ay1, _ = project((1.12 * np.sin(a1), 0, 1.12 * np.cos(a1)))
-ax.add_patch(FancyArrowPatch((ax0, ay0), (ax1, ay1), connectionstyle='arc3,rad=-0.25', arrowstyle='-|>',
+ax.add_patch(FancyArrowPatch((ax0, ay0), (ax1, ay1), connectionstyle='arc3,rad=0.25', arrowstyle='-|>',
 							 mutation_scale=12, color=BLUE, lw=1.4, zorder=4))
 
 # callout
-ax.text(1.12, 0.72, r'$R_y(\theta)\,|0\rangle$', color=BLUE, fontsize=15, ha='left', va='bottom')
-ax.text(1.12, 0.66, r'$\theta = 0,\ \pi/8,\ 2\pi/8,\ \ldots$', color=BLUE, fontsize=13, ha='left', va='top')
+ax.text(-1.12, 0.72, r'$R_y(\theta)\,|0\rangle$', color=BLUE, fontsize=15, ha='right', va='bottom')
+ax.text(-1.12, 0.66, r'$\theta = 0,\ \pi/8,\ 2\pi/8,\ \ldots$', color=BLUE, fontsize=13, ha='right', va='top')
 
 # where the optimizer ends up: theta = pi, the state |1>, which always measures 1 (cost 0)
 ax.annotate('', xy=(sx, sy + 0.04), xytext=(0, 0), zorder=5,
 			arrowprops=dict(arrowstyle='-|>', color=RED, lw=2.2, mutation_scale=14, shrinkA=0, shrinkB=0))
-ax.text(-0.62, -1.02, 'optimizer finds\n' + r'$\theta=\pi$' + ', so cost is 0', color=RED, fontsize=12.5,
-		ha='right', va='center', **ROMAN)
+ax.text(0.62, -1.02, 'optimizer finds\n' + r'$\theta=\pi$' + ', so cost is 0', color=RED, fontsize=12.5,
+		ha='left', va='center', **ROMAN)
 
 fig.savefig(OUT, dpi=150, bbox_inches='tight', facecolor='white')
 print('wrote', OUT)
