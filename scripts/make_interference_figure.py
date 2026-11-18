@@ -3,13 +3,14 @@
 ### quantum_plots.plot_state_qsphere (Qiskit's Q-sphere). Layout follows the original
 ### (Qiskit) figure, kept as images/interference_qiskit_original.png.
 ###
-### Run from this folder:   python make_interference_figure.py
+### Run from anywhere:   python scripts/make_interference_figure.py   (uses the helpers in ../helpers, no install needed)
 ### (Rasterizing the circuit SVG uses macOS `qlmanage`.)
 
 import io
 import os
 import re
 import subprocess
+import sys
 import tempfile
 
 import numpy as np
@@ -17,10 +18,12 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import cirq
 
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(REPO, 'helpers'))  # this repo's helpers, whether or not they're installed
+
 from quantum_plots import draw_circuit, plot_state_qsphere
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, 'images', 'interference.png')
+OUT = os.path.join(REPO, 'images', 'interference.png')
 UPSCALE = 8
 
 

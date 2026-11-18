@@ -8,7 +8,7 @@
 ### Axes follow the usual right-handed Bloch sphere drawing: x out of the page (lower left),
 ### y to the right, z up, so that x cross y = z.
 ###
-### Run from this folder:   python make_ry_figure.py
+### Run from anywhere:   python scripts/make_ry_figure.py
 
 import os
 
@@ -16,8 +16,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, FancyArrowPatch
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, 'images', 'ry-bloch-sphere.png')
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = os.path.join(REPO, 'images', 'ry-bloch-sphere.png')
 
 plt.rcParams['mathtext.fontset'] = 'cm'
 ROMAN = dict(fontfamily='cmr10')

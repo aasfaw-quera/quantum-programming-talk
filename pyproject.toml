@@ -11,7 +11,7 @@ authors = [{ name = "Abraham Asfaw" }]
 requires-python = ">=3.11"
 # MIT, except qiskit_qsphere.py, which is adapted from Qiskit and stays Apache-2.0.
 license = "MIT AND Apache-2.0"
-license-files = ["LICENSE", "LICENSE-QISKIT.txt"]
+license-files = ["LICENSE", "helpers/LICENSE-QISKIT.txt"]
 dependencies = [
     "cirq-core>=1.7,<2",
     "numpy",
@@ -23,6 +23,7 @@ dependencies = [
 Repository = "https://github.com/aasfaw-quera/quantum-programming-talk"
 
 [tool.setuptools]
-# Installed as top-level modules so the notebook can do `from quantum_plots import ...`.
-# The make_*_figure.py scripts regenerate images/ and are deliberately not installed.
+# The modules live in helpers/ but install as top-level modules, so the notebooks can do
+# `from quantum_plots import ...`. scripts/ regenerates images/ and is not installed.
+package-dir = { "" = "helpers" }
 py-modules = ["marked_number_boxes", "quantum_plots", "qiskit_qsphere"]

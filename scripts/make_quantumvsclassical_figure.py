@@ -4,19 +4,22 @@
 ### The quantum counts are measured, not assumed: each point builds the search circuit with
 ### find_number_in_quantum_box and counts how many times it had to look in the box (oracle calls).
 ###
-### Run from this folder:   python make_quantumvsclassical_figure.py
+### Run from anywhere:   python scripts/make_quantumvsclassical_figure.py   (uses the helpers in ../helpers, no install needed)
 
 import os
+import sys
 
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
 
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(REPO, 'helpers'))  # this repo's helpers, whether or not they're installed
+
 from marked_number_boxes import quantum_box, find_number_in_quantum_box
 from quantum_plots import _ROMAN
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, 'images', 'quantumvsclassical.png')
+OUT = os.path.join(REPO, 'images', 'quantumvsclassical.png')
 
 box_sizes = [10, 100, 1000]
 
