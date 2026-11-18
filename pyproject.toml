@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantum-programming-talk"
+version = "0.1.0"
+description = "Helper functions for the 'Elements of Quantum Programming' (Cirq) talk notebook"
+readme = "README.md"
+authors = [{ name = "Abraham Asfaw" }]
+requires-python = ">=3.11"
+# qiskit_qsphere.py is adapted from Qiskit and ships with Qiskit's Apache-2.0 license.
+license-files = ["LICENSE-QISKIT.txt"]
+dependencies = [
+    "cirq-core>=1.7,<2",
+    "numpy",
+    "matplotlib",
+    "ipython",
+]
+
+[project.urls]
+Repository = "https://github.com/aasfaw-quera/quantum-programming-talk"
+
+[tool.setuptools]
+# Installed as top-level modules so the notebook can do `from quantum_plots import ...`.
+# The make_*_figure.py scripts regenerate images/ and are deliberately not installed.
+py-modules = ["marked_number_boxes", "quantum_plots", "qiskit_qsphere"]
