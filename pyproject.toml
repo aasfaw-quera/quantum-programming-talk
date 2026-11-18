@@ -9,8 +9,9 @@ description = "Helper functions for the 'Elements of Quantum Programming' (Cirq)
 readme = "README.md"
 authors = [{ name = "Abraham Asfaw" }]
 requires-python = ">=3.11"
-# qiskit_qsphere.py is adapted from Qiskit and ships with Qiskit's Apache-2.0 license.
-license-files = ["LICENSE-QISKIT.txt"]
+# MIT, except qiskit_qsphere.py, which is adapted from Qiskit and stays Apache-2.0.
+license = "MIT AND Apache-2.0"
+license-files = ["LICENSE", "LICENSE-QISKIT.txt"]
 dependencies = [
     "cirq-core>=1.7,<2",
     "numpy",

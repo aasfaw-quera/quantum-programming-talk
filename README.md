@@ -26,6 +26,18 @@ from quantum_plots import draw_circuit, plot_histogram, plot_state_qsphere, samp
 
 Bitstrings follow Cirq's convention: qubit 0 is the **leftmost** bit.
 
+## Citing this material
+
+If you use this notebook or its helpers, or they inspire new material (a talk, course, tutorial, or paper),
+please cite this repository:
+
+> Abraham Asfaw, *Elements of Quantum Programming (Cirq)*, https://github.com/aasfaw-quera/quantum-programming-talk
+
+## License
+
+MIT, see `LICENSE`. The exception is `qiskit_qsphere.py`, which is adapted from Qiskit and stays under
+the Apache License 2.0 (see `LICENSE-QISKIT.txt` and Credits below).
+
 ## Credits
 
 `plot_state_qsphere` draws Qiskit's Q-sphere. The drawing code in `qiskit_qsphere.py` is adapted from
