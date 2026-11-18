@@ -1,4 +1,4 @@
-# Elements of Quantum Programming (Cirq)
+# Elements of Quantum Programming
 
 Talk notebooks by Abraham Asfaw (QuEra), plus the helper functions they use.
 
@@ -39,7 +39,7 @@ Bitstrings follow Cirq's convention: qubit 0 is the **leftmost** bit.
 If you use these notebooks or their helpers, or they inspire new material (a talk, course, tutorial, or paper),
 please cite this repository:
 
-> Abraham Asfaw, *Elements of Quantum Programming (Cirq)*, https://github.com/aasfaw-quera/quantum-programming-talk
+> Abraham Asfaw, *Elements of Quantum Programming*, https://github.com/aasfaw-quera/quantum-programming-talk
 
 ## License
 

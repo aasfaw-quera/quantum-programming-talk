@@ -1,4 +1,4 @@
-### Plotting helpers for the Cirq version of the notebook:
+### Plotting helpers for the talk notebooks:
 ###     plot_histogram(counts)        ~ qiskit.visualization.plot_histogram
 ###     plot_state_qsphere(state)     Qiskit's own Q-sphere (vendored in qiskit_qsphere.py), fed a Cirq state
 ###     sample_counts(state, shots)   ~ Statevector.sample_counts
