@@ -19,7 +19,7 @@ Pick whichever is easiest (or just read them with the *View* links, no setup nee
 ## Using the helpers in your own notebook
 
 ```python
-%pip install -q git+https://github.com/aasfaw-quera/quantum-programming-talk.git
+%pip install -q git+https://github.com/aasfaw-quera/quantum-programming-talk.git@v1.0
 ```
 
 ```python
