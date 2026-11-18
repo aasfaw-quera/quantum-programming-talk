@@ -1,17 +1,19 @@
 # Elements of Quantum Programming (Cirq)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aasfaw-quera/quantum-programming-talk/blob/main/elements-of-quantum-programming-cirq.ipynb)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aasfaw-quera/quantum-programming-talk/main?labpath=elements-of-quantum-programming-cirq.ipynb)
+Talk notebooks by Abraham Asfaw (QuEra), plus the helper functions they use.
 
-Talk notebook by Abraham Asfaw (QuEra), plus the helper functions it uses.
+| Part | Notebook | Open |
+|---|---|---|
+| 2/3 | Elements of Quantum Programming | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aasfaw-quera/quantum-programming-talk/blob/main/elements-of-quantum-programming-cirq.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aasfaw-quera/quantum-programming-talk/main?labpath=elements-of-quantum-programming-cirq.ipynb) |
+| 3/3 | Building Variational Eigensolvers | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aasfaw-quera/quantum-programming-talk/blob/main/building-variational-eigensolvers-cirq.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aasfaw-quera/quantum-programming-talk/main?labpath=building-variational-eigensolvers-cirq.ipynb) |
 
-## Running the notebook
+## Running the notebooks
 
 Pick whichever is easiest:
 
-- **Colab:** click the *Open in Colab* badge above.
-- **Binder:** click the *launch binder* badge above (the first launch can take a few minutes).
-- **Your own Jupyter:** download the notebook and run it. The first code cell installs everything it needs.
+- **Colab:** click a notebook's *Open in Colab* badge above.
+- **Binder:** click a notebook's *launch binder* badge above (the first launch can take a few minutes).
+- **Your own Jupyter:** download a notebook and run it. Its first code cell installs everything it needs.
 
 ## Using the helpers in your own notebook
 
@@ -28,7 +30,7 @@ Bitstrings follow Cirq's convention: qubit 0 is the **leftmost** bit.
 
 ## Citing this material
 
-If you use this notebook or its helpers, or they inspire new material (a talk, course, tutorial, or paper),
+If you use these notebooks or their helpers, or they inspire new material (a talk, course, tutorial, or paper),
 please cite this repository:
 
 > Abraham Asfaw, *Elements of Quantum Programming (Cirq)*, https://github.com/aasfaw-quera/quantum-programming-talk
